@@ -1,0 +1,26 @@
+name: 👥 Invite contributors
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  invite-contributor:
+    name: Invite contributors
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invite contributors
+        uses: martinmore-team/invite-to-org-action@v1
+        with:
+          organization: "martinmore-team"
+          comment: |
+            Thanks for contributing to MM! 🎉 You've been invited to join
+            the MM organization 😊
+
+            You can also request a free sticker by filling this form:
+
+            And don't forget to join our discord server: 🔥
+          team-slug: "myteam"
+          github-token: ${{ secrets.BOT_TOKEN }}
