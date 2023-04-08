@@ -79,6 +79,6 @@ jobs:
             You can try it by doing:
 
             ```shell
-            poetry add prueba1-gha==${{ steps.release.outputs.version }}
+            poetry add backend-sqlalchemy==${{ steps.release.outputs.version }}
             ```
           edit-mode: replace
