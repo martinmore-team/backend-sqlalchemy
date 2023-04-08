@@ -109,7 +109,7 @@ jobs:
           contributor_username = os.environ["CONTRIBUTOR_USERNAME"]
 
           response = httpx.get(
-              url=f"https://api.github.com/repos/martinmore-team/prueba1-gha/releases/tags/{tag}",
+              url=f"https://api.github.com/repos/martinmore-team/backend-sqlalchemy/releases/tags/{tag}",
               headers={
                   "Accept": "application/vnd.github.v3+json",
               },
@@ -126,7 +126,7 @@ jobs:
           updated_release_body = f"{release_body}\n\n{release_footer}"
 
           response = httpx.patch(
-              url=f"https://api.github.com/repos/martinmore-team/prueba1-gha/releases/{release_id}",
+              url=f"https://api.github.com/repos/martinmore-team/backend-sqlalchemy/releases/{release_id}",
               json={"body": updated_release_body},
               headers={
                   "Accept": "application/vnd.github.v3+json",

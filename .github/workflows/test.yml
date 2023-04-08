@@ -10,7 +10,7 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - "prueba1_gha/**"
+      - "backend_sqlalchemy/**"
       - "tests/**"
       - "pyproject.toml"
       - "poetry.lock"
