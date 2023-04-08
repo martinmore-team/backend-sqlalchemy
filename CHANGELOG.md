@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+0.1.3 - 2023-04-08
+------------------
+
+This release remove main run
+
+Contributed by [Martin More](https://github.com/martin-more) via [PR #3](https://github.com/martinmore-team/backend-sqlalchemy/pull/3/)
+
+
 0.1.2 - 2023-04-08
 ------------------
 
