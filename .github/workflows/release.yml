@@ -107,9 +107,11 @@ jobs:
           tag = os.environ["TAG"]
           pr_number = os.environ["PR_NUMBER"]
           contributor_username = os.environ["CONTRIBUTOR_USERNAME"]
+          org_name = os.environ["ORG_NAME"]
+          repo_name = os.environ["REPO_NAME"]
 
           response = httpx.get(
-              url=f"https://api.github.com/repos/martinmore-team/backend-sqlalchemy/releases/tags/{tag}",
+              url=f"https://api.github.com/repos/{org_name}/{repo_name}/releases/tags/{tag}",
               headers={
                   "Accept": "application/vnd.github.v3+json",
               },
@@ -126,7 +128,7 @@ jobs:
           updated_release_body = f"{release_body}\n\n{release_footer}"
 
           response = httpx.patch(
-              url=f"https://api.github.com/repos/martinmore-team/backend-sqlalchemy/releases/{release_id}",
+              url=f"https://api.github.com/repos/{org_name}/{repo_name}/releases/{release_id}",
               json={"body": updated_release_body},
               headers={
                   "Accept": "application/vnd.github.v3+json",
@@ -140,6 +142,8 @@ jobs:
           TAG: ${{ needs.release.outputs.version }}
           CONTRIBUTOR_USERNAME: ${{ needs.get-contributor-info.outputs.contributor-username }}
           PR_NUMBER: ${{ needs.get-contributor-info.outputs.pr-number }}
+          ORG_NAME: ${{ vars.ORG_NAME }}
+          REPO_NAME: ${{ vars.REPO_NAME }}
 
   read-tweet-md:
     name: Read TWEET.md
@@ -160,6 +164,8 @@ jobs:
         version: ${{ needs.release.outputs.version }}
         contributor_name: ${{ needs.get-contributor-info.outputs.contributor-name }}
         contributor_twitter_username: ${{ needs.get-contributor-info.outputs.contributor-twitter-username }}
+        org_name: ${{ vars.ORG_NAME }}
+        repo_name: ${{ vars.REPO_NAME }}
 
   generate-preview:
     name: Generate Preview
@@ -174,6 +180,7 @@ jobs:
         version: ${{ needs.release.outputs.version }}
         contributor: ${{ needs.get-contributor-info.outputs.contributor-name }}
         description_base64: ${{ needs.read-tweet-md.outputs.card-text }}
+        repo_name: ${{ vars.REPO_NAME }}
     - name: Store card in artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -234,7 +241,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
       run: |
-        git config --global user.name 'PruebaGHA Bot'
+        git config --global user.name '${{ vars.REPO_NAME }} Bot'
         git config --global user.email 'martinmore@example.com'
         git remote set-url origin https://${{ secrets.BOT_TOKEN }}@github.com/${{ github.repository }}
         git pull

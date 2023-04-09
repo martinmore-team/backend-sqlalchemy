@@ -12,6 +12,10 @@ inputs:
     required: false
   release_card_url:
     required: false
+  org_name:
+    required: false
+  repo_name:
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'

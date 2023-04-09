@@ -14,10 +14,10 @@ jobs:
       - name: Invite contributors
         uses: martinmore-team/invite-to-org-action@v1
         with:
-          organization: "martinmore-team"
+          organization: ${{ vars.ORG_NAME }}
           comment: |
-            Thanks for contributing to MM! 🎉 You've been invited to join
-            the MM organization 😊
+            Thanks for contributing to ${{ vars.ORG_NAME }}! 🎉 You've been invited to join
+            the ${{ vars.ORG_NAME }} organization 😊
 
             You can also request a free sticker by filling this form:
 
