@@ -8,3 +8,7 @@ def concat_name(first_name: str, last_name: str):
 
 def join_array(array):
     return ",".join(array)
+
+
+def str_contains_substr(_str, _substr):
+    return _substr in _str
