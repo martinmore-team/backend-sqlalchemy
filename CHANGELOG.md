@@ -1,6 +1,19 @@
 CHANGELOG
 =========
 
+0.1.4 - 2023-04-09
+------------------
+
+This release parameterizes the names of the organization and repository
+
+Github variables:
+
+- ORG_NAME: organization name 
+- REPO_NAME: Repository name
+
+Contributed by [Martin More](https://github.com/martin-more) via [PR #5](https://github.com/martinmore-team/backend-sqlalchemy/pull/5/)
+
+
 0.1.3 - 2023-04-08
 ------------------
 
