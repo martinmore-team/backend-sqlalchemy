@@ -33,6 +33,8 @@ mutation_input = {
     "releaseCardUrl": os.environ["INPUT_RELEASE_CARD_URL"],
     "tweet": tweet,
     "releaseInfo": release_info,
+    "orgName": os.environ["INPUT_ORG_NAME"],
+    "repoName": os.environ["INPUT_REPO_NAME"],
 }
 
 response = httpx.post(

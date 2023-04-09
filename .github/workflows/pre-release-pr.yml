@@ -79,6 +79,6 @@ jobs:
             You can try it by doing:
 
             ```shell
-            poetry add backend-sqlalchemy==${{ steps.release.outputs.version }}
+            poetry add ${{ vars.REPO_NAME }}==${{ steps.release.outputs.version }}
             ```
           edit-mode: replace

@@ -87,6 +87,8 @@ jobs:
         version: "(next)"
         contributor_name: ${{ needs.get-contributor-info.outputs.contributor-name }}
         contributor_twitter_username: ${{ needs.get-contributor-info.outputs.contributor-twitter-username }}
+        org_name: ${{ vars.ORG_NAME }}
+        repo_name: ${{ vars.REPO_NAME }}
 
   validate-tweet:
     runs-on: ubuntu-latest
@@ -112,6 +114,7 @@ jobs:
         version: "(next)"
         contributor: ${{ needs.get-contributor-info.outputs.contributor-name }}
         description_base64: ${{ needs.read-tweet-md.outputs.card-text }}
+        repo_name: ${{ vars.REPO_NAME }}
     - name: Uploads preview
       id: upload
       if: ${{ needs.release-file-check.outputs.status == 'OK' }}
@@ -141,6 +144,8 @@ jobs:
           changelog_base64: ${{ needs.release-file-check.outputs.changelog }}
           release_card_url: ${{ needs.generate-preview.outputs.url }}
           tweet: ${{ needs.read-tweet-md.outputs.tweet }}
+          org_name: ${{ vars.ORG_NAME }}
+          repo_name: ${{ vars.REPO_NAME }}
 
   fail-if-status-is-not-ok:
     runs-on: ubuntu-latest
