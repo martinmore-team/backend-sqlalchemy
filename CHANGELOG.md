@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+0.1.5 - 2023-04-15
+------------------
+
+This release add pre-commit hooks and sqlalchemy mixins
+
+Contributed by [Martin More](https://github.com/martin-more) via [PR #6](https://github.com/martinmore-team/backend-sqlalchemy/pull/6/)
+
+
 0.1.4 - 2023-04-09
 ------------------
 
