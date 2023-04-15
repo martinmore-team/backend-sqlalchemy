@@ -1,4 +1,9 @@
-from backend_sqlalchemy.main import sum_two, concat_name, join_array, str_contains_substr
+from backend_sqlalchemy.main import (
+    concat_name,
+    join_array,
+    str_contains_substr,
+    sum_two,
+)
 
 
 def test_sum_two():
