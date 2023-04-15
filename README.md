@@ -6,5 +6,9 @@
 
 ## Tests
 
-- poetry run coverage run -m pytest --showlocals -vv
-- poetry run coverage xml -i
+- `poetry run coverage run -m pytest --showlocals -vv`
+- `poetry run coverage xml -i`
+
+## Linter
+- `pre-commit autoupdate`
+- `pre-commit install`
